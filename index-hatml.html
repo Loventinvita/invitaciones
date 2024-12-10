@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de Parámetros</title>
+</head>
+<body>
+  <div id="customMessage" style="font-size: 24px; text-align: center; margin-top: 50px;"></div>
+  <script>
+    window.onload = function() {
+      console.log("Script cargado correctamente");
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      const familia = getQueryParam('familia');
+      console.log("Valor del parámetro familia:", familia);
+      const messageElement = document.getElementById('customMessage');
+      if (messageElement) {
+        if (familia) {
+          messageElement.textContent = `Bienvenidos, familia ${familia}`;
+        } else {
+          messageElement.textContent = 'Bienvenidos, invitados';
+        }
+      }
+    };
+  </script>
+</body>
+</html>
